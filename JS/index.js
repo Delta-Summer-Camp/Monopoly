@@ -1,10 +1,12 @@
 import { app } from "./initFirebase.mjs";
 import { auth } from "./auth.mjs";
+import { getGameID } from "./getGameID.mjs"
 
 auth(app)
-	.then(initGame);
+	.then(getGameID)
+	.then(nextStep);
 
 
-function initGame(param) {
-	alert("initGame now!\n" + param);
+function nextStep(param) {
+	alert("Next step now!\n" + param);
 }
