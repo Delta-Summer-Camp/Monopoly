@@ -45,4 +45,4 @@ function auth(app) {
 	})
 }
 
-export { auth };
+export { auth, myUID };
