@@ -5,6 +5,7 @@
 import { getDatabase, get, ref, child, set } from "https://www.gstatic.com/firebasejs/9.6.9/firebase-database.js";
 import { app } from "./initFirebase.mjs";
 import { myUID } from "./auth.mjs";
+import { initNewGame } from "./initNewGame.mjs";
 
 let gameID = null;
 
@@ -24,14 +25,10 @@ function getGameID() {
 		if (gameID == 0) {
 			gameID = Date.now();
 
-			const gameRef = child(ref(getDatabase(app)), 'games/' + gameID);
-			set(gameRef, {
-				status: "New",
-				owner: myUID
-			})
-			.then(() => {
-				location.href = '/?gameID=' + gameID;
-			});
+			initNewGame(gameID)
+				.then(() => {
+					location.href = '/?gameID=' + gameID;
+				});
 		}
 
 		// ...otherways check if the game exists and active
@@ -50,7 +47,8 @@ function getGameID() {
 					}
 				}
 				else {
-					alert("Что-то пошло не так");
+					alert("Такой игры не существует");
+					location.href = '/';
 					reject();
 				}
 			})
@@ -58,4 +56,4 @@ function getGameID() {
 	});
 }
 
-export { getGameID }
+export { getGameID, gameID }
