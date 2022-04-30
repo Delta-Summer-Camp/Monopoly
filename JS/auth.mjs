@@ -33,7 +33,6 @@ function auth(app) {
 							}
 							else {
 								const myName = prompt("Привет! Как тебя зовут?", "Captain Nemo");
-								// Ошибка была тут: забыли импортировать функцию 'set()'!
 								set(child(dbRef, 'users/' + myUID + '/nickname'), myName);
 								param = "This session is authorized with new user " + myName;
 								resolve(param);

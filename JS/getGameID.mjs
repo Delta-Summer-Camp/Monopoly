@@ -5,7 +5,7 @@
 import { getDatabase, get, ref, child, set } from "https://www.gstatic.com/firebasejs/9.6.9/firebase-database.js";
 import { app } from "./initFirebase.mjs";
 import { myUID } from "./auth.mjs";
-import { initNewGame } from "./initNewGame.mjs";
+import { createNewGame } from "./createNewGame.mjs";
 
 let gameID = null;
 
@@ -25,7 +25,7 @@ function getGameID() {
 		if (gameID == 0) {
 			gameID = Date.now();
 
-			initNewGame(gameID)
+			createNewGame(gameID)
 				.then(() => {
 					location.href = '/?gameID=' + gameID;
 				});
