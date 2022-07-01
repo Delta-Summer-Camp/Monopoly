@@ -1,10 +1,10 @@
-// Import the functions you need from the SDKs you need
-import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.9/firebase-app.js";
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
+/*
+*  Init Firebase Application and export application object
+*/
+import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.0/firebase-app.js";
 
-// Your web app's Firebase configuration
-const firebaseConfig = {
+// Web app's Firebase configuration
+  const firebaseConfig = {
   apiKey: "AIzaSyCWNReM8TfsIwYKNC493A3_B8oIwVopVCs",
   authDomain: "monopoly-2022.firebaseapp.com",
   projectId: "monopoly-2022",

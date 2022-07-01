@@ -1,0 +1,34 @@
+#chooseTokenDialog {
+    border: darkred 2px solid;
+    background-color: lightgoldenrodyellow;
+    width: 70%;
+    min-width: 1000px;
+    margin: 100px auto 0;
+    padding: 40px;
+}
+#tokens {
+    display: flex;
+    flex-direction: row;
+}
+.token {
+    width: 100%;
+    margin: 3px;
+    border: lightgray 1px solid;
+    cursor: pointer;
+}
+.token img {
+    width: 90px;
+    display: block;
+    margin: 0 auto;
+}
+.token p {
+    font-size: 18px;
+    text-align: center;
+}
+.token.focused {
+    border-color: red;
+}
+.token.used {
+    background-color: lightgray;
+    cursor: default !important;
+}

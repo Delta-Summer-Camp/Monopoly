@@ -1,0 +1,63 @@
+text,type,typeId,Description
+"Подключение
+к  Firebase",Rectangle,creately.basic.rectangle,
+Авторизованы?,Diamond,creately.basic.diamond,
+"Запустить 
+виджет
+ авторизации",Rectangle,creately.basic.rectangle,
+"Мы знаем этого
+ человека?",Diamond,creately.basic.diamond,
+"Открыть окно 
+регистрации
+(спросить никнейм 
+и сохранить в базе)",Rectangle,creately.basic.rectangle,
+"Проверка 
+адресной 
+строки",Rectangle,creately.basic.rectangle,
+"Есть идентификатор 
+игры?",Diamond,creately.basic.diamond,
+"Запрашиваем идентификатор
+игры",Rectangle,creately.basic.rectangle,
+"Введён
+ноль",Ellipse,creately.basic.ellipse,
+"Введён
+идентификатор игры",Ellipse,creately.basic.ellipse,
+"Игра 
+существует и 
+активна?",Diamond,creately.basic.diamond,
+Stop,Rounded Rectangle,creately.basic.roundedrectangle,
+"Модуль создания новой игры
+createNewGame.mjs",Rounded Rectangle,creately.basic.roundedrectangle,
+,Rounded Rectangle,creately.basic.roundedrectangle,
+"Блок аутентификации
+auth.mjs",Rounded Rectangle,creately.basic.roundedrectangle,
+,Rounded Rectangle,creately.basic.roundedrectangle,
+"Блок подключения к Firebase
+initFirebase.mjs",Rounded Rectangle,creately.basic.roundedrectangle,
+,Rounded Rectangle,creately.basic.roundedrectangle,
+"Модуль подключения к игре / создания игры
+getGameID.mjs",Rounded Rectangle,creately.basic.roundedrectangle,
+,To Right Arrow,creately.arrows.torightarrow,
+app,Rounded Rectangle,creately.basic.roundedrectangle,
+"auth()
+myUID",Rounded Rectangle,creately.basic.roundedrectangle,
+,To Right Arrow,creately.arrows.torightarrow,
+"getGameID()
+gameID",Rounded Rectangle,creately.basic.roundedrectangle,
+,To Right Arrow,creately.arrows.torightarrow,
+,Rounded Rectangle,creately.basic.roundedrectangle,
+"Блок обработчиков событий
+setListeners.mjs",Rounded Rectangle,creately.basic.roundedrectangle,
+,Rounded Rectangle,creately.basic.roundedrectangle,
+"Модуль инициализации игры
+initGame.mjs",Rounded Rectangle,creately.basic.roundedrectangle,
+,Rounded Rectangle,creately.basic.roundedrectangle,
+Active,Rounded Rectangle,creately.basic.roundedrectangle,
+Finished (?),Rounded Rectangle,creately.basic.roundedrectangle,
+New,Text,creately.basic.text,
+,Rectangle,creately.basic.rectangle,
+game.status,Text,creately.basic.text,
+"Player exist and
+not 'preparing'",Diamond,creately.basic.diamond,
+"Модуль
+initPlayer.mjs",Rounded Rectangle,creately.basic.roundedrectangle,
