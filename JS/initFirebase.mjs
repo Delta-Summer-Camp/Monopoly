@@ -3,6 +3,8 @@
 */
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.0/firebase-app.js";
 
+console.debug("initializeApp()");
+
 // Web app's Firebase configuration
   const firebaseConfig = {
   apiKey: "AIzaSyCWNReM8TfsIwYKNC493A3_B8oIwVopVCs",

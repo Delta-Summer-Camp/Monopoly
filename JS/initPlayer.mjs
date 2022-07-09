@@ -9,10 +9,15 @@ import { gameAssets, moneySet } from "./assets.mjs";
 import { myUID } from "./auth.mjs";
 
 function initPlayer(gameID, player) {
+	console.debug("initPlayer()");
 	// Create modal dialog 'Choose Token', manage this process, store tokens state in database at the end
 	// Returns in promise 'player' object
 	return new Promise((resolve, reject) => {
-		if (player && player.token) resolve(player);
+		console.debug("initPlayer(): promise started");
+		if (player && player.token) {
+			console.debug("initPlayer(): resolved, player already has token");
+			resolve(player);
+		}
 
 		// if the player in not registered yet
 		if (!player) player = {status: "New"};
@@ -37,6 +42,7 @@ function initPlayer(gameID, player) {
 		}
 
 		if (!freeTokens) {
+			console.debug("initPlayer(): rejected: Не осталось свободных фишек! :(");
 			reject("Не осталось свободных фишек! :(");
 		}
 
@@ -74,12 +80,14 @@ function initPlayer(gameID, player) {
 								player.token = token;
 								player.money = moneySet;
 								$("#modalWrapper").remove();
+								console.debug("initPlayer(): resolved, player has chosen token");
 								resolve(player);
 							})
 					}
 				}
 			}
 			else {
+				console.debug("initPlayer(): rejected: Возникла ошибка в модуле выбора фишки!")
 				reject("Возникла ошибка в модуле выбора фишки!");
 			}
 		})

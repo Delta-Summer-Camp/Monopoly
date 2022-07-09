@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Monopoly Game</title>
+
+    <!-- set up Google font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans&family=Roboto&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="CSS/main.css">
+
+</head>
+<body>
+    <div id="wrapper">
+        <div id="left">
+            <div id="gameArea"></div>
+        </div>
+        <div id="right">
+            <div id="infoWrapper">
+                <div id="infoPanel">
+                    <div class="player_card">
+                        <div class="player_image_wrapper">
+                            <img src="img/tokens/ship.png" alt="ship_token">
+                        </div>
+                        <div class="player_info">
+                            <h3 class="player_name">Capitan Nemo</h3>
+                            <p class="player_status">Ready</p>
+                        </div>
+                    </div>
+                    <div class="player_card owner">
+                        <div class="player_image_wrapper">
+                            <img src="img/tokens/boot.png" alt="boot_token">
+                        </div>
+                        <div class="player_info">
+                            <h3 class="player_name">John Black</h3>
+                            <p class="player_status">Ready</p>
+                        </div>
+                    </div>
+                    <div class="player_card">
+                        <div class="player_image_wrapper">
+                            <img src="img/tokens/iron.png" alt="iron_token">
+                        </div>
+                        <div class="player_info">
+                            <h3 class="player_name">Blood Star</h3>
+                            <p class="player_status">Ready</p>
+                        </div>
+                    </div>
+                    <div class="player_card walking">
+                        <div class="player_image_wrapper">
+                            <img src="img/tokens/dog.png" alt="dog_token">
+                        </div>
+                        <div class="player_info">
+                            <h3 class="player_name">Baskerville</h3>
+                            <p class="player_status">Walking...</p>
+                        </div>
+                    </div>
+                    <div class="player_card">
+                        <div class="player_image_wrapper">
+                            <img src="img/tokens/thimble.png" alt="thimble_token">
+                        </div>
+                        <div class="player_info">
+                            <h3 class="player_name">Anna the Queen</h3>
+                            <p class="player_status">Ready</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="assetsWrapper">
+                <button id="startGame">Начать игру!</button>
+                <div class="assets">
+                    <div id="firstRow">
+                        <div id="IllinoisAv" class="property_card">
+                            <img src="img/IllinoisAvenue.jpg" alt="IllinoisAv">
+                        </div>
+                        <div id="IndianaAv" class="property_card">
+                            <img src="img/IndianaAvenue.jpg" alt="IndianaAv">
+                        </div>
+                        <div id="PennsylvaniaRlr" class="property_card">
+                            <img src="img/PennsylvaniaRailroad.jpg" alt="PennsylvaniaRlr">
+                        </div>
+                        <div id="ParkPlace" class="property_card">
+                            <img src="img/ParkPlace.jpg" alt="ParkPlace">
+                        </div>
+                        <div id="NewYorkAv" class="property_card">
+                            <img src="img/NewYorkAvenue.jpg" alt="NewYorkAv">
+                        </div>
+                        <div id="Electric" class="property_card">
+                            <img src="img/ElectricCompany.jpg" alt="Electric">
+                        </div>
+                    </div>
+                    <div id="secondRow">
+                        <div id="chance" class="chance">
+                            <img src="img/Chance.jpg" alt="Chance">
+                        </div>
+                    </div>
+                </div>
+                <div id="cashBlock">
+                    <div id="banknote-500" class="banknote_holder">
+                        <div class="banknote">$500</div>
+                        <div class="quantity"><p id="quantity-500">2</p></div>
+                    </div>
+                    <div id="banknote-100" class="banknote_holder">
+                        <div class="banknote">$100</div>
+                        <div class="quantity"><p id="quantity-100">4</p></div>
+                    </div>
+                    <div id="banknote-50" class="banknote_holder">
+                        <div class="banknote">$50</div>
+                        <div class="quantity"><p id="quantity-50">1</p></div>
+                    </div>
+                    <div id="banknote-20" class="banknote_holder">
+                        <div class="banknote">$20</div>
+                        <div class="quantity"><p id="quantity-20">1</p></div>
+                    </div>
+                    <div id="banknote-10" class="banknote_holder">
+                        <div class="banknote">$10</div>
+                        <div class="quantity"><p id="quantity-10">2</p></div>
+                    </div>
+                    <div id="banknote-5" class="banknote_holder">
+                        <div class="banknote">$5</div>
+                        <div class="quantity"><p id="quantity-5">1</p></div>
+                    </div>
+                    <div id="banknote-1" class="banknote_holder">
+                        <div class="banknote">$1</div>
+                        <div class="quantity"><p id="quantity-1">5</p></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

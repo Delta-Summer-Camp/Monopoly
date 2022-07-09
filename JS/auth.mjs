@@ -7,12 +7,15 @@ import { getDatabase, ref, set, onValue, child, get } from "https://www.gstatic.
 
 var myUID = null;
 function auth() {
+	console.debug("auth()");
 	return new Promise(resolve => {
+		console.debug(("auth():promise started"));
 		let param = "This session is not authorized!";
 		const fbAuth = getAuth(app);
 
 		// Check if the authorization has been changed
 		onAuthStateChanged(fbAuth, user => {
+			console.debug("auth():onAuthStateChanged, user=" + user);
 
 			// ...if not authorized
 			if (!user) {
@@ -22,7 +25,6 @@ function auth() {
 					.catch(error => {
 						alert(error.message);
 					})
-
 			}
 
 			// ...if authorithed check if we know who is it
@@ -31,17 +33,18 @@ function auth() {
 				const dbRef = ref(getDatabase(app));
 				get(child(dbRef, 'users/' + myUID))
 					.then(snapshot => {
+						console.debug("auth(): get dbRef/users/myUID");
 						if (snapshot.exists) {
 							const currentPlayer = snapshot.val();
 							if(currentPlayer && currentPlayer.nickname) {
-								param = "This session is authorized as " + currentPlayer.nickname;
-								resolve(param);
+								console.debug("auth(): resolved: This session is authorized as " + currentPlayer.nickname);
+								resolve();
 							}
 							else {
 								const myName = prompt("Привет! Как тебя зовут?", "Captain Nemo")
 								set(child(dbRef, 'users/' + myUID + '/nickname'), myName);
-								param = "This session is authorized with new user " + myName;
-								resolve(param);
+								console.debug("auth(): resolved: This session is authorized with new user " + myName);
+								resolve();
 							}
 						}
 					})

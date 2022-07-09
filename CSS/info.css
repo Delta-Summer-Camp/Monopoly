@@ -1,0 +1,35 @@
+#infoWrapper {
+    height: 40vh;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+.player_card {
+    display: flex;
+    width: 100%;
+    margin: 2px auto;
+    border: gray 1px solid;
+    border-radius: 2px;
+    background-color: lightgrey;
+}
+.player_card .player_image_wrapper {
+    width: 70px;
+}
+.player_card .player_image_wrapper img {
+    width: 100%;
+}
+.player_card .player_name {
+    margin-block: 0.5em;
+}
+.player_card .player_status {
+    margin-block: 0.5em;
+    color: darkslategray;
+}
+.player_card.walking {
+    background-color: #ECEFF1;
+}
+.player_card.walking .player_status {
+    font-weight: bold;
+}
+.player_card.owner {
+    border-color: #ffa100;
+}

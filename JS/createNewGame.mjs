@@ -1,6 +1,6 @@
 /*
 *
-*	Initialazing new game
+*	Initializing new game
 *
 */
 import { getDatabase, ref, set, child } from "https://www.gstatic.com/firebasejs/9.6.0/firebase-database.js";
@@ -8,10 +8,8 @@ import { app } from "./initFirebase.mjs";
 import { myUID } from "./auth.mjs";
 import { gameAssets } from "./assets.mjs";
 
-
-
-
 function createNewGame(gameID) {
+	console.debug("createNewGame");
 	const gameRef = child(ref(getDatabase(app)), 'games/' + gameID);
 	const players = [];
 	players[myUID] = {status: "Preparing"};

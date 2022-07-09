@@ -1,0 +1,118 @@
+#assetsWrapper {
+    border: darkcyan 1px solid;
+    height: 60vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+#startGame {
+    width: 98%;
+    height: 2.1em;
+    font-family: 'Balsamiq Sans', cursive;
+    font-size: 1.5em;
+    color: blueviolet;
+    background-color: aquamarine;
+    border-radius: 0.2em;
+    margin: 10px 0;
+    cursor: pointer;
+    box-shadow: 1px 1px;
+}
+#startGame:active {
+    transform: translate(1px, 1px);
+    box-shadow: none;
+    background-color: mediumaquamarine;
+}
+#property {
+    height: 120px;
+}
+.assets {
+    display: flex;
+    flex-flow: column;
+    height: 100%;
+    width: 100%;
+    overflow: auto;
+}
+.assets #firstRow {
+    display: flex;
+    height: 50%;
+    width: 100%;
+}
+.assets .property_card {
+    border: darkslategray 2px solid;
+    margin-right: -10px;
+    margin-top: 1px;
+    margin-left: 1px;
+    height: 6.6em;
+    width: 4em;
+}
+.assets .property_card img {
+    width: 100%;
+}
+#cashBlock {
+    display: flex;
+    flex-flow: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: flex-end;
+}
+#cashBlock .banknote_holder {
+    height: 5em;
+    width: 3.5em;
+    border: 1px solid;
+    margin: 3px;
+}
+.banknote {
+    text-align: center;
+    font-size: 20px;
+    font-family: 'Roboto', sans-serif;
+}
+.quantity {
+    display: flex;
+    justify-content: center;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.3em;
+    line-height: 0.5em;
+}
+#cashBlock #banknote-500 {
+    border-color: gold;
+}
+#cashBlock #banknote-500 .banknote {
+    background-color: gold;
+}
+#cashBlock #banknote-100 {
+    border-color: beige;
+}
+#cashBlock #banknote-100 .banknote {
+    background-color: beige;
+}
+#cashBlock #banknote-50 {
+    border-color: lightskyblue;
+}
+#cashBlock #banknote-50 .banknote {
+    background-color: lightskyblue;
+}
+#cashBlock #banknote-20 {
+    border-color: lightgreen;
+}
+#cashBlock #banknote-20 .banknote {
+    background-color: lightgreen;
+}
+#cashBlock #banknote-10 {
+    border-color: #ffd500;
+}
+#cashBlock #banknote-10 .banknote {
+    background-color: #ffd500;
+}
+#cashBlock #banknote-5 {
+    border-color: pink;
+}
+#cashBlock #banknote-5 .banknote {
+    background-color: pink;
+}
+#cashBlock #banknote-1 {
+    border-color: lightgray;
+}
+#cashBlock #banknote-1 .banknote {
+    background-color: lightgray;
+}

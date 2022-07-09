@@ -12,7 +12,9 @@ import { getDatabase, ref, set, child, get } from "https://www.gstatic.com/fireb
 let gameID = null;
 
 function getGameID() {
+	console.debug("getGameID()");
 	return new Promise((resolve, reject) => {
+		console.debug("getGameID(): promise started");
 		// read URL Params
 	    const params = new URLSearchParams(location.search.substring(1));
 	    gameID = parseInt(params.get("gameID"), 10);
@@ -27,9 +29,11 @@ function getGameID() {
 				gameID = Date.now();
 
 				createNewGame(gameID).then(() => {
+					console.debug("getGameID(): change location to /?gameID=" + gameID);
 					location.href = '/?gameID=' + gameID;
 				});
 			} else {
+				console.debug("getGameID(): change location to /?gameID=" + gameID);
 				location.href = '/?gameID=' + gameID;
 			}
 		}
@@ -38,17 +42,21 @@ function getGameID() {
 	    else {
 	    	const gameRef = child(ref(getDatabase(app)), 'games/' + gameID);
 	    	get(child(gameRef, '/status')).then(snapshot => {
-	    		if (snapshot.exists()) {
+				console.debug("getGameID(): get(gameRef/status)");
+				if (snapshot.exists()) {
 	    			const gameStatus = snapshot.val();
 	    			switch (gameStatus) {
-	    				case "New": 
-   				 		    resolve(gameID);
+	    				case "New":
+							console.debug("getGameID(): resolved: gameID=" + gameID);
+							resolve(gameID);
    				 		    break;
 			 		    default: // can't get game status
-			 		    	reject("Неизвестный статус игры");
+							console.debug("getGameID(): rejected: Неизвестный статус игры");
+							reject("Неизвестный статус игры");
 	    			}
 	    		}
 	    		else { // something wrong
+					console.debug("getGameID(): rejected: Такого идентификатора игры не существует");
 	 		    	reject("Такого идентификатора игры не существует");
 	    		}
 	    	});
