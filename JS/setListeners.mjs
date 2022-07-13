@@ -18,7 +18,7 @@ function setListeners(gameID) {
 		console.debug("setListeners(): setPlayersListener()");
 		return new Promise((resolve, reject) => {
 			console.debug("setListeners(): setPlayersListener() promise started");
-			const playersRef = child(ref(getDatabase(app)), '/games/' + gameID + '/players/');
+			const playersRef = child(ref(getDatabase(app)), `/games/${gameID}/players/`);
 			onValue(playersRef, snapshot => {
 				console.debug("setListeners(): setPlayersListener(): onValue(playersRef)");
 				if (snapshot.exists) {

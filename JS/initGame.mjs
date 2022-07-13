@@ -5,8 +5,9 @@
 */
 import { getDatabase, ref, set, onValue, child, get, update } from "https://www.gstatic.com/firebasejs/9.6.0/firebase-database.js";
 import { app } from "./initFirebase.mjs";
-import { myUID } from "./auth.mjs";
+import { myUID, myName } from "./auth.mjs";
 import { initPlayer } from "./initPlayer.mjs";
+import { infoPanel } from "./infoPanel.mjs";
 
 function initGame(gameID) {
 	console.debug("initGame()");
@@ -29,22 +30,23 @@ function initGame(gameID) {
 					if (!player || player.status === "Preparing") {
 						console.debug("initGame(): call initPlayer()");
 						initPlayer(gameID, player).then(player => {
+							player.nickname = myName;
 							player.status = "Ready";
 							update(child(gameRef, "players/" + myUID), player);
-							console.debug(`initGame(): resolved`);
-							resolve(gameID);
+							console.debug(`initGame(): initPlayer(): resolved`);
+							initHTML();
 						});
 					}
 					// if already prepared
 					else {
 						console.debug(`initGame(): resolved, player status="${player.status}"`);
-						resolve(gameID);
+						initHTML();
 					}
 					break;
 				case "Ready":
 				case "Playing":
 					console.debug(`initGame(): resolved`);
-					resolve(gameID);
+					initHTML();
 					break;
 				default:
 					console.debug(`initGame(): rejected: Эту игру невозможно восстановить :(`);
@@ -52,8 +54,12 @@ function initGame(gameID) {
 			}
 		});
 
+		// initialize html-elements like game area, info panel or accessories and resolve the promise
+		function initHTML() {
+			$("#infoWrapper").append(infoPanel.getNode());
+			resolve(gameID);
+		}
 	});
-
 }
 
 export { initGame };

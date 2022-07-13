@@ -6,7 +6,6 @@
 import { getDatabase, ref, set, onValue, child, get, update } from "https://www.gstatic.com/firebasejs/9.6.0/firebase-database.js";
 import { app } from "./initFirebase.mjs";
 import { gameAssets, moneySet } from "./assets.mjs";
-import { myUID } from "./auth.mjs";
 
 function initPlayer(gameID, player) {
 	console.debug("initPlayer()");

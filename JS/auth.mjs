@@ -5,7 +5,9 @@ import { app } from "./initFirebase.mjs";
 import { getAuth, signOut, signInWithPopup, GoogleAuthProvider, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.6.0/firebase-auth.js";
 import { getDatabase, ref, set, onValue, child, get } from "https://www.gstatic.com/firebasejs/9.6.0/firebase-database.js";
 
-var myUID = null;
+let myUID = null;
+let myName = null;
+
 function auth() {
 	console.debug("auth()");
 	return new Promise(resolve => {
@@ -38,10 +40,11 @@ function auth() {
 							const currentPlayer = snapshot.val();
 							if(currentPlayer && currentPlayer.nickname) {
 								console.debug("auth(): resolved: This session is authorized as " + currentPlayer.nickname);
+								myName = currentPlayer.nickname;
 								resolve();
 							}
 							else {
-								const myName = prompt("Привет! Как тебя зовут?", "Captain Nemo")
+								myName = prompt("Привет! Как тебя зовут?", "Captain Nemo")
 								set(child(dbRef, 'users/' + myUID + '/nickname'), myName);
 								console.debug("auth(): resolved: This session is authorized with new user " + myName);
 								resolve();
@@ -54,4 +57,4 @@ function auth() {
 	});
 }
 
-export { auth, myUID };
+export { auth, myUID, myName };
