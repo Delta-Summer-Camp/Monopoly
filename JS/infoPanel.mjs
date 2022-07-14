@@ -1,47 +1,40 @@
 /*
 *
 *  infoPanel server
+*  - info panel is attached to #infoWrapper node (defined in INFO_WRAPPER constant)
 *
- */
+*/
+
+const INFO_WRAPPER = "#infoWrapper";
 
 import { myUID } from "./auth.mjs";
 import { app } from "./initFirebase.mjs";
 import { gameID } from "./getGameID.mjs";
-import { getDatabase, ref, set, onValue, child, get } from "https://www.gstatic.com/firebasejs/9.6.0/firebase-database.js";
+import { getDatabase, ref, onValue, child } from "https://www.gstatic.com/firebasejs/9.6.0/firebase-database.js";
 
 let players = null;
 let detach = null;
 
-const infoPanel = {
-    // creates the InfoPanel node and set the listener
-    getNode: function () {
-        console.debug("infoPanel: getNode()");
+function initInfoPanel() {
+    console.debug("initInfoPanel started");
 
-        // create html node
-        console.debug("InfoPanel: create node");
-        let node = $('<div id="infoPanel"></div>');
+    // create html node
+    console.debug("initInfoPanel: create node");
+    $(INFO_WRAPPER).append($('<div id="infoPanel"></div>'));
 
-        // set listener
-        if (detach) detach();
-        const dbRef = ref(getDatabase(app));
-        const playersRef = child(dbRef, `games/${gameID}/players`);
-        detach = onValue(playersRef, snapshot => {
-            console.debug("infoPanel: playersRef")
-            if(!snapshot.exists) return;
-            players = snapshot.val();
-            this.update();
-        })
-        return node;
-    },
+    // set listener
+    if (detach) detach();
+    detach = onValue(child(ref(getDatabase(app)), `games/${gameID}/players`), snapshot => {
+        console.debug("infoPanel: playersRef")
+        if(!snapshot.exists) return;
+        players = snapshot.val();
 
-    // Update the InfoPanel
-    update: function () {
-        console.debug("infoPanel: update()");
-
+        console.debug("initInfoPanel: update");
         if (!players) return;
 
-        let node = $("#infoPanel");
+        const node = $("#infoPanel");
         node.empty();
+        //ToDo: sort cards if the playing order was already defined
         for (const player in players) {
             const token = (players[player].token) ? players[player].token : "unknown";
             const nickname = (players[player].nickname) ? players[player].nickname : "";
@@ -60,7 +53,7 @@ const infoPanel = {
             if (player === myUID) playerNode.addClass('myself');
             node.append(playerNode);
         }
-    }
+    });
 }
 
-export { infoPanel }
+export { initInfoPanel }

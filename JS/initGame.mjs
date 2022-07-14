@@ -7,7 +7,7 @@ import { getDatabase, ref, set, onValue, child, get, update } from "https://www.
 import { app } from "./initFirebase.mjs";
 import { myUID, myName } from "./auth.mjs";
 import { initPlayer } from "./initPlayer.mjs";
-import { infoPanel } from "./infoPanel.mjs";
+import { initInfoPanel } from "./infoPanel.mjs";
 
 function initGame(gameID) {
 	console.debug("initGame()");
@@ -56,7 +56,7 @@ function initGame(gameID) {
 
 		// initialize html-elements like game area, info panel or accessories and resolve the promise
 		function initHTML() {
-			$("#infoWrapper").append(infoPanel.getNode());
+			initInfoPanel();
 			resolve(gameID);
 		}
 	});
