@@ -19,7 +19,7 @@ function initPlayer(gameID, player) {
 		}
 
 		// if the player in not registered yet
-		if (!player) player = {status: "New"};
+		if (!player) player = {status: "New"}; // ToDo: we need to store this status to database
 
 		// build modal dialog
 		let modalWrapperNode = $("#modalWrapper");
@@ -77,7 +77,7 @@ function initPlayer(gameID, player) {
 								update(child(tokensRef, token), {available: false});
 
 								player.token = token;
-								player.money = moneySet;
+								player.assets = {money: moneySet};
 								$("#modalWrapper").remove();
 								console.debug("initPlayer(): resolved, player has chosen token");
 								resolve(player);

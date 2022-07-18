@@ -1,5 +1,5 @@
 /*
-*  Authentification module, exports auth(app) function that make all autharization steps and returs the promice
+*  Authentication module, exports auth(app) function that make all authorization steps and returns the promise
 */
 import { app } from "./initFirebase.mjs";
 import { getAuth, signOut, signInWithPopup, GoogleAuthProvider, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.6.0/firebase-auth.js";

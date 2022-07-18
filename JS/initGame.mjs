@@ -8,12 +8,17 @@ import { app } from "./initFirebase.mjs";
 import { myUID, myName } from "./auth.mjs";
 import { initPlayer } from "./initPlayer.mjs";
 import { initInfoPanel } from "./infoPanel.mjs";
+import { initAssetsPanel } from "./assetsPanel.js";
+import { gameStatusListener } from "./gameStatusListener.js";
+
+let gameOwner = null;
 
 function initGame(gameID) {
 	console.debug("initGame()");
 	return new Promise((resolve, reject) => {
 		console.debug("initGame(): promise started");
-		// check the game status and the player state
+
+		// check once the game status and the player state
 		const gameRef = child(ref(getDatabase(app)), 'games/' + gameID); 
 		get(gameRef).then(snapshot => {
 			console.debug("initGame(): get(gameRef)");
@@ -23,6 +28,7 @@ function initGame(gameID) {
 			}
 			const game = snapshot.val();
 			const player = game.players[myUID];
+			gameOwner = game.owner;
 			switch (game.status) {
 				// prepare for game
 				case "New":
@@ -44,6 +50,7 @@ function initGame(gameID) {
 					}
 					break;
 				case "Ready":
+
 				case "Playing":
 					console.debug(`initGame(): resolved`);
 					initHTML();
@@ -57,6 +64,8 @@ function initGame(gameID) {
 		// initialize html-elements like game area, info panel or accessories and resolve the promise
 		function initHTML() {
 			initInfoPanel();
+			gameStatusListener(gameOwner);
+			initAssetsPanel();
 			resolve(gameID);
 		}
 	});

@@ -29,5 +29,5 @@ h1 {
 }
 #right {
     width: calc(100vw - 100vh);
-    max-width: calc(1366px - 100vh);
+    max-width: 40em;
 }

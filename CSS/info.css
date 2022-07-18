@@ -1,7 +1,36 @@
 #infoWrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     height: 40vh;
     overflow-x: hidden;
     overflow-y: auto;
+    margin-right: 0.1em;
+}
+#startGame {
+    width: 98%;
+    height: 2.1em;
+    font-family: 'Balsamiq Sans', cursive;
+    font-size: 1.5em;
+    color: blueviolet;
+    background-color: aquamarine;
+    border-radius: 0.2em;
+    margin: 10px 0;
+    cursor: pointer;
+    box-shadow: 1px 1px;
+}
+#startGame:active {
+    transform: translate(1px, 1px);
+    box-shadow: none;
+    background-color: mediumaquamarine;
+}
+#startGame.disabled {
+    cursor: no-drop;
+    background-color: mediumaquamarine;
+}
+#startGame:active.disabled {
+    box-shadow: 1px 1px;
+    transform: none;
 }
 .player_card {
     display: flex;
